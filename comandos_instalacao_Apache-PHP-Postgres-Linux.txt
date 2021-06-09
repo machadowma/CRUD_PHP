@@ -1,0 +1,31 @@
+*******************************************
+** Instalando PostgreSQL no Ubuntu 20.04 **
+** https://youtu.be/q0r-4etqNf4          **
+*******************************************
+
+
+sudo apt-get install postgresql-12 
+
+sudo -u postgres psql
+
+ALTER USER postgres PASSWORD 'postgres';
+
+\q
+
+sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+sudo apt install pgadmin4
+
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+sudo apt-get install php libapache2-mod-php
+
+sudo systemctl restart apache2
+
+sudo chmod -R 777 /var/www/html
+
+sudo apt-get install php-pdql
+
+sudo service apache2 reload
